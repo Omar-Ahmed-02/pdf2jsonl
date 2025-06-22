@@ -4,4 +4,5 @@ openai
 numpy
 scikit-learn
 python-dotenv
-gunicorn 
+gunicorn
+Flask-Cors 

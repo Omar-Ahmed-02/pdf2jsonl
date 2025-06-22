@@ -9,12 +9,14 @@ from sklearn.cluster import KMeans
 import time
 from dotenv import load_dotenv
 from flask import Flask, request, render_template, send_from_directory, jsonify
+from flask_cors import CORS
 
 load_dotenv()
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
+CORS(app) # Enable CORS for all routes
 app.config['UPLOAD_FOLDER'] = os.path.join(basedir, 'uploads')
 app.config['OUTPUT_FOLDER'] = os.path.join(basedir, 'outputs')
 
@@ -123,10 +125,6 @@ def process_pdf_to_jsonl(pdf_path, output_path="fine_tune_data.jsonl", n_cluster
     clustered_chunks = group_by_cluster(chunks, labels)
     print("🧠 Generating prompts and writing JSONL file...")
     return create_finetune_dataset(clustered_chunks, output_path)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():

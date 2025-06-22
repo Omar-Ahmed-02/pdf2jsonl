@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const BACKEND_URL = 'https://OmarAhmed02.pythonanywhere.com';
     const form = document.getElementById('upload-form');
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // formData.append('file', selectedFile); // The file is already in the form's file input
 
         try {
-            const response = await fetch('/upload', {
+            const response = await fetch(`${BACKEND_URL}/upload`, {
                 method: 'POST',
                 body: formData
             });
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 statusDiv.textContent = 'Processing complete!';
                 const downloadLink = document.createElement('a');
-                downloadLink.href = result.download_url;
+                downloadLink.href = `${BACKEND_URL}${result.download_url}`;
                 downloadLink.textContent = 'Download JSONL File';
                 downloadLink.setAttribute('download', result.filename);
                 downloadLinkContainer.appendChild(downloadLink);
