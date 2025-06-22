@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to JSONL Fine-Tuning Data Generator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <svg class="logo-svg" width="30" height="27" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 2V8H20" stroke="#E0E0E0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.5 16.5L12 14L14.5 16.5" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 14V11" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-text">PDF2JSONL</span>
+        </div>
+    </header>
+
+    <div class="scrolling-banner">
+        <div class="scrolling-banner-text">
+            <span>From Boring PDF to Training Data.</span>
+            <span>From Boring PDF to Training Data.</span>
+            <span>From Boring PDF to Training Data.</span>
+            <span>From Boring PDF to Training Data.</span>
+            <span>From Boring PDF to Training Data.</span>
+            <span>From Boring PDF to Training Data.</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>PDF to JSONL Converter</h1>
+        <p>Drag and drop a PDF file or click to select one. The script will generate a JSONL file for fine-tuning.</p>
+        
+        <form id="upload-form" enctype="multipart/form-data">
+            <div id="drop-zone">
+                <p>Drag & Drop PDF here or click to select</p>
+                <input type="file" name="file" id="file-input" accept=".pdf" hidden>
+            </div>
+            
+            <div class="form-group">
+                <label for="n_clusters">Number of Clusters:</label>
+                <input type="number" id="n_clusters" name="n_clusters" value="7" min="1">
+            </div>
+            
+            <button type="submit" id="submit-button">Process PDF</button>
+        </form>
+        
+        <div id="status"></div>
+        <div id="download-link-container"></div>
+    </div>
+    
+    <footer class="site-footer">
+        <p>BY : OMAR AHMED</p>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 
